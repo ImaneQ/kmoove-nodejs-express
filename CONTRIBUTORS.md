@@ -1,3 +1,3 @@
-[MatteoFra]([https://github.com/MatteoFra])
-[ImaneQ]([https://github.com/ImaneQ])
-[LuigiVampa]([https://github.com/LuigiVampa21])
+[MatteoFra](http://github.com "MatteoFra")
+[ImaneQ](http://github.com "ImaneQ")
+[LuigiVampa](http://github.com "LuigiVampa")
