@@ -1,4 +1,4 @@
-Maquette (recherche inspiration design, charte couleur, image, ...)
+Maquette (recherche inspiration design, charte couleur/polices, images/logo, ...)
 
 Prise de contact : whatsapp, mail (karimmounassib@gmail.com)
 
