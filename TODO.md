@@ -8,4 +8,4 @@ Landing page
 
 Présentation du projet
 
-Page de contact (demande devis, messagerie direct)
+Page de contact (demande devis, messagerie direct(redirection >> whatsapp)
