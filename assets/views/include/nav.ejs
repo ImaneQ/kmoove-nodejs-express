@@ -1,0 +1,15 @@
+<nav id="navbar-top">
+  <p>nav</p>
+  <ul>
+    <% if (name =="index") { %>
+        <li><a href="/" class="selected">index</a></li>
+    <%} else { %>
+        <li><a href="/">index</a></li>
+    <% } %>
+    <% if (name =="about") { %>
+        <li><a href="/about" class="selected">about</a></li>
+    <%} else { %>
+        <li><a href="/about">about</a></li>
+    <% } %>
+  </ul>
+</nav>

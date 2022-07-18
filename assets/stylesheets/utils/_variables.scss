@@ -1,0 +1,37 @@
+// COLORS
+
+$black-1: #000;
+$grey-1: #999;
+$white-1: #FFF;
+
+$dark-blue-1: #1e0774;
+$dark-blue-2: #00007c;
+
+$light-blue-1: #73ddeb;
+
+$violet-1: #9176f5;
+
+$orange-1: #ffa600;
+
+$light-green-1: #cdfc87;
+$pink-1: #f700ff;
+
+
+
+// FONT
+
+$font-family: serif;
+$font-size: 16px, 18px, 20px, 22px, 25px;
+
+$font-family-sightless: "Luciole", sans-serif, "Eido";
+$font-size-sightless: 18px;
+
+
+// BREAKPOINT MEDIA QUERIES
+
+$breakpoints: (
+    sm: 350px,
+    md: 700px,
+    lg: 1024px
+);
+

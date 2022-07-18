@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="<%= data.head.lang %>">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="canonical" href="<%= data.head.url %>" />
+    <link rel="alternate" hreflang="x-default" href="<%= data.head.url %>" />
+
+    <% data.head.hreflang.forEach(function(lang){ %>
+    <link
+      rel="alternate"
+      hreflang="<%= lang.hreflang %>"
+      href="<%= lang.href %>"
+    />
+    <% }); %>
+
+    <meta name="robots" content="<%= data.head.robots %>" />
+    <meta name="description" content="<%= data.head.description %>" />
+    <meta name="keywords" content="<%= data.head.keywords %>" />
+
+    <!-- 
+    <meta name="google-site-verification" content="" /> 
+    <meta name="author" content="">
+    
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content=""/> 
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:image" content="">
+  -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#008987" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <!-- <link rel="stylesheet" href="stylesheets/test.css"> -->
+
+    <title><%= data.head.title %></title>
+  </head>
+  <body>

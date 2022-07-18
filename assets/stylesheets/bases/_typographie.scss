@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Luciole";
+  src: url("./../files/fonts/Luciole/Luciole-Regular.ttf");
+}
+
+body {
+  font-family: $font-family;
+  font-size: nth($font-size, 1);
+}

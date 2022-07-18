@@ -1,0 +1,85 @@
+@keyframes turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes turnReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+@font-face {
+  font-family: "Luciole";
+  src: url("./../files/fonts/Luciole/Luciole-Regular.ttf");
+}
+body {
+  font-family: serif;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a.link {
+  text-decoration: underline dotted 2px var(--color-border);
+  color: var(--color-secondary);
+}
+a.link:hover {
+  color: var(--color-border);
+}
+
+ul {
+  list-style-position: inside;
+}
+
+#navbar-top {
+  border: 3px solid blue;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+#navbar-top ul {
+  display: flex;
+  list-style-type: none;
+}
+#navbar-top ul li .selected {
+  text-decoration: underline 2px solid #000;
+}
+
+#footer {
+  border: 3px solid purple;
+}
+
+.form {
+  border: 3px solid green;
+}
+
+#ima-k {
+  border: 3px solid red;
+}
+
+#nat-home {
+  border: 3px solid red;
+}
+
+#mat-diapo-bands {
+  border: 3px solid red;
+}
+
+/*# sourceMappingURL=style.css.map */

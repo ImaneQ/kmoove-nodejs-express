@@ -1,0 +1,33 @@
+@mixin border($size: 1px, $color: $black-1){
+    border: $size solid $color;
+}
+
+@mixin justCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin sm-only {
+    @media all and (max-width: map-get($breakpoints, md)){
+        @content;
+    }
+}
+
+@mixin md {
+    @media all and (min-width: map-get($breakpoints, md)){
+        @content;
+    }
+}
+
+@mixin md-only {
+    @media all and (min-width: map-get($breakpoints, md)) and (max-width: map-get($breakpoints, lg)){
+        @content;
+    }
+}
+
+@mixin lg {
+    @media all and (min-width: map-get($breakpoints, lg)){
+        @content;
+    }
+}

@@ -1,0 +1,18 @@
+@import "./utils/variables";
+@import "./utils/mixins";
+@import "./utils/animations";
+
+@import "./bases/global";
+@import "./bases/typographie";
+@import "./bases/elements";
+
+@import "./components/nav";
+@import "./components/footer";
+@import "./components/form";
+
+@import "./components/ima-k";
+@import "./components/nat-home";
+@import "./components/mat-diapo-bands";
+
+
+// sass --watch  .\style.scss .\style.css
