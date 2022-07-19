@@ -18,16 +18,16 @@ module.exports = function (req, res, next) {
 
     console.log(`${req.method} => ${req.originalUrl}`)
 
-    console.log(`HEADER : { HOST : ${JSON.stringify(req.headers.host)}, CONTENT-TYPE : ${JSON.stringify(req.headers['content-type'])}, USER-AGENT : ${JSON.stringify(req.headers['user-agent'])} }`)
+    // console.log(`HEADER : { HOST : ${JSON.stringify(req.headers.host)}, CONTENT-TYPE : ${JSON.stringify(req.headers['content-type'])}, USER-AGENT : ${JSON.stringify(req.headers['user-agent'])} }`)
 
-    let pathElements = req.originalUrl.split("/")
-    let path = ""
-    for (let i = 0; i < pathElements.length; i++) {
-        let result = pathElements[i]
-        if (result == "") { result = "empty" }
-        path += `${i} : ${result},  `
-    }
-    console.log(`URL : { ${path} }`);
+    // let pathElements = req.originalUrl.split("/")
+    // let path = ""
+    // for (let i = 0; i < pathElements.length; i++) {
+    //     let result = pathElements[i]
+    //     if (result == "") { result = "empty" }
+    //     path += `${i} : ${result},  `
+    // }
+    // console.log(`URL : { ${path} }`);
 
     if (req.method == "POST") {
 

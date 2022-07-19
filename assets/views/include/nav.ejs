@@ -1,15 +1,42 @@
 <nav id="navbar-top">
   <p>nav</p>
   <ul>
+
+
     <% if (name =="index") { %>
         <li><a href="/" class="selected">index</a></li>
     <%} else { %>
         <li><a href="/">index</a></li>
     <% } %>
+
+
     <% if (name =="about") { %>
         <li><a href="/about" class="selected">about</a></li>
     <%} else { %>
         <li><a href="/about">about</a></li>
     <% } %>
+
+
+    <% if (name =="our-games") { %>
+        <li><a href="/our-games" class="selected">our-games</a></li>
+    <%} else { %>
+        <li><a href="/our-games">our-games</a></li>
+    <% } %>
+
+
+    <% if (name =="for-who") { %>
+        <li><a href="/for-who" class="selected">for-who</a></li>
+    <%} else { %>
+        <li><a href="/for-who">for-who</a></li>
+    <% } %>
+    
+
+
+    <% if (name =="login") { %>
+      <li><a href="/login" class="selected">login</a></li>
+  <%} else { %>
+      <li><a href="/login">login</a></li>
+  <% } %>
+  
   </ul>
 </nav>

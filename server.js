@@ -4,8 +4,6 @@ const NodeCache = require("node-cache");
 const busboy = require('connect-busboy');
 // const compression = require('compression')
 
-
-
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
@@ -31,23 +29,23 @@ app.use(require('./middlewares/language'), async (req, res, next) => {
     // on recupere la page en fonction de l'url et de la langue et on la met en cache
     if (req.lang !== undefined) {
         let langAccepted = ["fr", "en"]
-        let urlAccepted = ["index", "about"]
+        let urlAccepted = ["index", "about", "for-who", "our-games", "login"]
         let firstElementUrl = req.originalUrl.split("/")[1]
         let secondElementUrl = req.originalUrl.split("/")[2]
         var page = ""
-
-        // console.log(`${firstElementUrl}, ${secondElementUrl}, `);
+        console.log(`${firstElementUrl}, ${secondElementUrl}, `);
         if (firstElementUrl == "" || urlAccepted.includes(firstElementUrl)) {
+            console.log(`no lang in l'url (${req.lang})`);
             if (!urlAccepted.includes(firstElementUrl) && secondElementUrl == undefined) {
                 page = "index"
-                // console.log(`page is index 1`);
+                console.log(`page is index 1`);
             } else {
                 page = firstElementUrl
-                // console.log(`page is ${page} 2`);
-
+                console.log(`page is ${page} 2`);
             }
         }
         else if (langAccepted.includes(firstElementUrl)) {
+            console.log(`lang in l'url (${firstElementUrl})`);
             if (secondElementUrl == undefined) {
                 page = "index"
                 console.log(`page is index 3`);
@@ -59,10 +57,12 @@ app.use(require('./middlewares/language'), async (req, res, next) => {
                 next()
             }
         }
+
         let cacheName = req.lang + "/" + page
         let cache = myCache.get(cacheName)
+
         if (cache == undefined && page !== "") {
-            console.log(`==== ${cacheName} isn't cached ====`);
+            console.log(`page isn't cached (${cacheName})`);
             let data = require(`./data/lang/${req.lang}/${page}.json`)
             success = myCache.set(cacheName, data);
             if (success) {
@@ -70,7 +70,7 @@ app.use(require('./middlewares/language'), async (req, res, next) => {
                 req.data = data
             }
         } else {
-            console.log(`==== ${cacheName} is cached ====`);
+            console.log(`page is cached (${cacheName})`);
             data = myCache.get(cacheName)
             req.data = data
         }
@@ -82,98 +82,13 @@ app.use(require('./middlewares/language'), async (req, res, next) => {
 });
 
 app.get('/:lang([a-z]{2})?/:page?*', (req, res) => {
+    console.log("\n======== GET request principal ========\n");
     let data = req.data
-    if (data !== undefined) {
-        res.render(data.page.name, { data })
-    } else {
-        console.log(req.lang);
-        res.redirect(301, `/${req.lang}`)
-    }
+    console.log(`render ${data.page.name}`);
+    res.render(data.page.name, { data })
 })
 app.get('/maintenance', (req, res) => {
-    console.log("\n======== get('/maintenance') ========\n");
-    res.send('maintenance')
-})
-app.get('user/', (req, res) => {
-    res.render("admin")
-    // let login = false
-    // // if admin is logged
-    // if (login) {
-    //     res.render("admin")
-    // } 
-    // // else redirect on login page
-    // else {
-    //     res.redirect(301, '/admin/login')
-    // }
-})
-app.get('user/admin', (req, res) => {
-    res.render("admin")
-    // let login = false
-    // // if admin is logged
-    // if (login) {
-    //     res.render("admin")
-    // } 
-    // // else redirect on login page
-    // else {
-    //     res.redirect(301, '/admin/login')
-    // }
-})
-app.post("/user/sign_up", (req, res) => {
-    var pass
-    var pseudo
-    if (!req.busboy) {
-        console.log("Erreur: un form Data est attendu");
-    } else {
-        req.busboy.on('file', (name, file, info) => {
-            // console.log(`[file]\n
-            //     name === ${name}\n
-            //     value === ${file}\n
-            //     info === ${info}\n
-            // `);
-            if (name === "pass") {
-                file.on('data', (data) => {
-                    // console.log(data);
-                    // console.log(data.length);
-                    // console.log(data.toString());
-                    var text = data.toString()
-                    if (text !== "") {
-                        pass = text
-                    }
-                }).on('close', () => {
-                    // console.log(`close file`);
-                });
-            }
-        });
-
-        req.busboy.on('field', (name, value, info) => {
-            // console.log(`[field]\n
-            // name === ${name}\n
-            // value === ${value}\n
-            // info === ${info}\n
-            // `);
-            if (name === "name") {
-                pseudo = value
-            }
-        });
-
-        req.busboy.on('close', () => {
-            console.log(`${pseudo}\n${pass}`);
-
-            if (pseudo !== undefined && pseudo !== "" && pass !== undefined && pass !== "") {
-                console.log('toutèbon');
-                res.redirect(301, '/admin/login')
-            }
-            else {
-                console.log('probleme identifiants');
-                res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.render("maintenance")
-            }
-        });
-
-        req.pipe(req.busboy);
-    }
-
-    // res.send("ok post login")
+    res.render("maintenance")
 })
 
 // ERROR
