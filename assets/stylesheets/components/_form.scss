@@ -1,3 +1,22 @@
 .form{
-    @include border(3px, green)
+    height: 0px;
+    background-color: $bg-form;
+    transition: all ease .4s;
+    @include justCenter();
+    form{
+        display: none;
+        transition: all 3s ease;
+        width: clamp(350px, 100%, 500px);
+        text-align: center;
+        label,input{
+            display: block;
+            margin: auto;
+        }
+    }
+    &.active{
+        height: 350px;
+        form{
+            display: block;
+        }
+    }
 }

@@ -1,6 +1,24 @@
-<div class="form" id="form<%= id %>">
+<div class="form" id="form-<%= id %>">
     <form>
-        <label for="ocj"></label>
-        <input type="text">
+        <button class="closeForm">close</button>
+        <p>
+            <label for="name">Votre Nom :</label>
+            <input type="text" id="name" name="name">
+        </p>
+        <p>
+            <label for="email">Votre Email :</label>
+            <input type="text" id="email" name="email">
+        </p>
+        <p>
+            <label for="obj">Objet de votre message :</label>
+            <input type="text" id="obj" name="obj">
+        </p>
+        <p>
+            <label for="obj">Votre message :</label>
+            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        </p>
+        <p>
+            <button type="submit">Envoyer</button>
+        </p>
     </form>
 </div>

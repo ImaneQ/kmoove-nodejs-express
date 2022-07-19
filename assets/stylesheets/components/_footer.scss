@@ -1,3 +1,164 @@
-#footer{
-    @include border(3px, purple)
+#footer {
+  @include border(3px, black);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  #contactBtn {
+    // @include border(3px, red);
+    @include justCenter();
+    cursor: pointer;
+    transition: all ease 1s;
+    h5 {
+    //   @include border(2px, red);
+      margin-right: 10px;
+    }
+    div.letter-image {
+    //   @include border(2px, red);
+      width: 50px;
+      height: 50px;
+      .animated-mail {
+        // @include border(1px, red);
+        position: absolute;
+        height: 37.5px;
+        width: 50px;
+        transition: 0.4s;
+      }
+      .animated-mail .body {
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 25px 50px;
+        border-color: transparent transparent #e95f55 transparent;
+        z-index: 2;
+      }
+      .animated-mail .top-fold {
+        position: absolute;
+        top: 12.5px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 12.5px 25px 0 25px;
+        -webkit-transform-origin: 50% 0%;
+        -webkit-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+        -moz-transform-origin: 50% 0%;
+        -moz-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+        transform-origin: 50% 0%;
+        transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+        border-color: #cf4a43 transparent transparent transparent;
+        z-index: 2;
+      }
+      .animated-mail .back-fold {
+        position: absolute;
+        bottom: 0;
+        width: 50px;
+        height: 25px;
+        background: #cf4a43;
+        z-index: 0;
+      }
+      .animated-mail .left-fold {
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 12.5px 0 12.5px 25px;
+        border-color: transparent transparent transparent #e15349;
+        z-index: 2;
+      }
+      .animated-mail .letter {
+        left: 5px;
+        bottom: 0px;
+        position: absolute;
+        width: 40px;
+        height: 15px;
+        background: white;
+        z-index: 1;
+        overflow: hidden;
+        transition: 0.4s 0.2s;
+      }
+      .animated-mail .letter .letter-border {
+        height: 2.5px;
+        width: 100%;
+        background: repeating-linear-gradient(
+          -45deg,
+          #cb5a5e,
+          #cb5a5e 8px,
+          transparent 8px,
+          transparent 18px
+        );
+      }
+      .animated-mail .letter .letter-title {
+        margin-top: 2.5px;
+        margin-left: 1.25px;
+        height: 2.5px;
+        width: 40%;
+        background: #cb5a5e;
+      }
+      .animated-mail .letter .letter-context {
+        margin-top: 2.5px;
+        margin-left: 1.25px;
+        height: 2.5px;
+        width: 20%;
+        background: #cb5a5e;
+      }
+      .animated-mail .letter .letter-stamp {
+        margin-top: 7.5px;
+        margin-left: 30px;
+        border-radius: 100%;
+        height: 7.5px;
+        width: 7.5px;
+        background: #cb5a5e;
+        opacity: 0.3;
+      }
+      &.active {
+        .animated-mail {
+          transform: translateY(12.5px);
+        }
+        .animated-mail .top-fold {
+          transition: transform 0.4s, z-index 0.2s;
+          transform: rotateX(180deg);
+          z-index: 0;
+        }
+        .animated-mail .letter {
+          height: 45px;
+        }
+      }
+    }
+    &:hover {
+      div.letter-image {
+        position: relative;
+        animation: bounce .4s alternate infinite;
+        &.active{
+            animation: none;
+        }
+      }
+    }
+  }
+  #followUs {
+    // @include border(3px, red);
+    h5 {
+    //   @include border(2px, red);
+    }
+    div {
+    //   @include border(2px, red);
+      width: 70%;
+      margin: auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      a {
+        // @include border(2px, red);
+        padding: 5px;
+        i{
+            transition: .3s ease;
+        }
+        &:hover i{
+            transform: scale(1.3);
+        }
+      }
+    }
+  }
 }

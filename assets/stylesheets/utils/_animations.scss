@@ -8,3 +8,11 @@
     transform: rotate(-360deg);
   }
 }
+@keyframes bounce {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 5px;
+  }
+}

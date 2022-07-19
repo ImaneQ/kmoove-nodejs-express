@@ -8,6 +8,14 @@
     transform: rotate(-360deg);
   }
 }
+@keyframes bounce {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 5px;
+  }
+}
 *,
 *::after,
 *::before {
@@ -63,11 +71,173 @@ ul {
 }
 
 #footer {
-  border: 3px solid purple;
+  border: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+#footer #contactBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all ease 1s;
+}
+#footer #contactBtn h5 {
+  margin-right: 10px;
+}
+#footer #contactBtn div.letter-image {
+  width: 50px;
+  height: 50px;
+}
+#footer #contactBtn div.letter-image .animated-mail {
+  position: absolute;
+  height: 37.5px;
+  width: 50px;
+  transition: 0.4s;
+}
+#footer #contactBtn div.letter-image .animated-mail .body {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 25px 50px;
+  border-color: transparent transparent #e95f55 transparent;
+  z-index: 2;
+}
+#footer #contactBtn div.letter-image .animated-mail .top-fold {
+  position: absolute;
+  top: 12.5px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12.5px 25px 0 25px;
+  -webkit-transform-origin: 50% 0%;
+  -webkit-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+  -moz-transform-origin: 50% 0%;
+  -moz-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+  transform-origin: 50% 0%;
+  transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+  border-color: #cf4a43 transparent transparent transparent;
+  z-index: 2;
+}
+#footer #contactBtn div.letter-image .animated-mail .back-fold {
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 25px;
+  background: #cf4a43;
+  z-index: 0;
+}
+#footer #contactBtn div.letter-image .animated-mail .left-fold {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12.5px 0 12.5px 25px;
+  border-color: transparent transparent transparent #e15349;
+  z-index: 2;
+}
+#footer #contactBtn div.letter-image .animated-mail .letter {
+  left: 5px;
+  bottom: 0px;
+  position: absolute;
+  width: 40px;
+  height: 15px;
+  background: white;
+  z-index: 1;
+  overflow: hidden;
+  transition: 0.4s 0.2s;
+}
+#footer #contactBtn div.letter-image .animated-mail .letter .letter-border {
+  height: 2.5px;
+  width: 100%;
+  background: repeating-linear-gradient(-45deg, #cb5a5e, #cb5a5e 8px, transparent 8px, transparent 18px);
+}
+#footer #contactBtn div.letter-image .animated-mail .letter .letter-title {
+  margin-top: 2.5px;
+  margin-left: 1.25px;
+  height: 2.5px;
+  width: 40%;
+  background: #cb5a5e;
+}
+#footer #contactBtn div.letter-image .animated-mail .letter .letter-context {
+  margin-top: 2.5px;
+  margin-left: 1.25px;
+  height: 2.5px;
+  width: 20%;
+  background: #cb5a5e;
+}
+#footer #contactBtn div.letter-image .animated-mail .letter .letter-stamp {
+  margin-top: 7.5px;
+  margin-left: 30px;
+  border-radius: 100%;
+  height: 7.5px;
+  width: 7.5px;
+  background: #cb5a5e;
+  opacity: 0.3;
+}
+#footer #contactBtn div.letter-image.active .animated-mail {
+  transform: translateY(12.5px);
+}
+#footer #contactBtn div.letter-image.active .animated-mail .top-fold {
+  transition: transform 0.4s, z-index 0.2s;
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+#footer #contactBtn div.letter-image.active .animated-mail .letter {
+  height: 45px;
+}
+#footer #contactBtn:hover div.letter-image {
+  position: relative;
+  animation: bounce 0.4s alternate infinite;
+}
+#footer #contactBtn:hover div.letter-image.active {
+  animation: none;
+}
+#footer #followUs div {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#footer #followUs div a {
+  padding: 5px;
+}
+#footer #followUs div a i {
+  transition: 0.3s ease;
+}
+#footer #followUs div a:hover i {
+  transform: scale(1.3);
 }
 
 .form {
-  border: 3px solid green;
+  height: 0px;
+  background-color: rgba(89, 27, 120, 0.4666666667);
+  transition: all ease 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form form {
+  display: none;
+  transition: all 3s ease;
+  width: clamp(350px, 100%, 500px);
+  text-align: center;
+}
+.form form label, .form form input {
+  display: block;
+  margin: auto;
+}
+.form.active {
+  height: 350px;
+}
+.form.active form {
+  display: block;
 }
 
 #ima-k {
