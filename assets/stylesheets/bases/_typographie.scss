@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Lato&family=Playfair+Display:wght@500&family=Press+Start+2P&display=swap');
+// h2 // h3 // p // navbar
+
+// accessibility
 @font-face {
   font-family: "Luciole";
   src: url("./../files/fonts/Luciole/Luciole-Regular.ttf");
@@ -6,4 +10,29 @@
 body {
   font-family: $font-family;
   font-size: nth($font-size, 1);
+}
+
+h2{
+  font-family: 'Press Start 2P', cursive;
+}
+h3{
+  font-family: 'Playfair Display', serif;
+}
+h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+}
+p{
+  font-family: 'Lato', sans-serif;
+}
+
+#followUs ul li{
+  font-family: fontAwesome;
+}
+
+#navbarLinks {
+  .navbarLink{
+    font-family: 'Bowlby One', cursive;
+    text-transform: uppercase;
+  }
 }

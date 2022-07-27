@@ -1,72 +1,50 @@
-console.log("hello world nav.js");
+// let navbarTop = document.getElementById('navbarTop')
+let burger = document.getElementById('toggleBurger')
+let navbarLinks = document.getElementById('navbarLinks')
+let langages = document.getElementById('langages')
+let scrollToTop = document.getElementById('scrollToTop')
 
-// var options = {
-//     root: document.getElementById('navbar-top'),
-//     rootMargin: '0px',
-//     threshold: 1.0
-// }
-
-// var callback = (entries, observer) => {
-//     console.log("ok nav");
-//     entries.forEach(entry => {
-//         console.log(entry.boundingClientRect);
-//         console.log(entry.intersectionRatio);
-//         console.log(entry.intersectionRect);
-//         console.log(entry.isIntersecting);
-//         console.log(entry.rootBounds);
-//         console.log(entry.target);
-//         console.log(entry.time);
-//       });
-// }
-
-// var observer = new IntersectionObserver(callback, options);
-
-let navbar = document.getElementById('navbar-top')
-let natHome = document.getElementById('nat-home')
-
-var numSteps = 20.0;
-
-window.onload = () => {
-    createObserver(natHome);
+burger.onclick = () => {
+    burger.classList.toggle('active')
+    navbarLinks.classList.toggle('active')
 }
 
-function createObserver(element) {
-    var observer;
-    var options = {
-        root: null,
-        rootMargin: "0px",
-        threshold: buildThresholdList()
-    };
-    observer = new IntersectionObserver(handleIntersect, options);
-    observer.observe(element);
+langages.onclick = () => {
+    langages.classList.toggle('active')
 }
 
-function buildThresholdList() {
-    var thresholds = [];
-    for (var i = 1.0; i <= numSteps; i++) {
-        var ratio = i / numSteps;
-        thresholds.push(ratio);
-    }
-    thresholds.push(0);
-    return thresholds;
+scrollToTop.onclick = () => {
+    document.body.scrollIntoView()
+    setTimeout(() => {
+        scrollToTop.classList.remove('active');
+    }, 1000)
 }
 
-function handleIntersect(entries, observer) {
-    entries.forEach(function (entry) {
-        // console.log(`
+var lastScrollTop = 0;
 
-        // ${entry.target.id}
+window.onscroll = () => {
 
-        // `);
-        // console.log(`intersectionRatio == ${entry.intersectionRatio}`);
-        // console.log(`intersectionRect == ${entry.intersectionRect}`);
-        // console.log(`boundingClientRect == ${entry.boundingClientRect}`);
-        // console.log(`isIntersecting == ${entry.isIntersecting}`);
-        // console.log(`rootBounds == ${entry.rootBounds}`);
+    navbarTop.classList.toggle('sticky', window.scrollY > 50)
 
-        if (entry.target.id == "nat-home" && !entry.isIntersecting) {
-            document.body.removeChild(natHome)
-            navbar.classList.toggle('active')
+    var st = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (st > lastScrollTop) {
+        scrollToTop.classList.remove('active');
+        if(window.pageYOffset >= 500){
+            navbarTop.classList.remove('active')
         }
-    });
-}
+        else{
+            navbarTop.classList.add('active')
+        }
+    } else {
+        if (window.pageYOffset >= 250) {
+            scrollToTop.classList.add('active');
+        }
+        else {
+            scrollToTop.classList.remove('active');
+        }
+        navbarTop.classList.add('active')
+    }
+    lastScrollTop = st <= 0 ? 0 : st;
+    scrollToTop.style.transform = `rotate(${window.pageYOffset / 2}deg)`
+};

@@ -10,9 +10,16 @@
 @import "./components/footer";
 @import "./components/form";
 
-@import "./components/ima-k";
-@import "./components/nat-home";
-@import "./components/mat-diapo-bands";
+@import "./components/includes/nat-home";
+
+@import "./components/includes/mat-diapo";
+@import "./components/includes/mat-bands";
+@import "./components/includes/mat-benefices";
+@import "./components/includes/mat-image-paralax-one";
+@import "./components/includes/mat-k";
+@import "./components/includes/mat-prerequisite";
+@import "./components/includes/mat-karim";
+@import "./components/includes/mat-form-register";
 
 
 // sass --watch  .\style.scss .\style.css

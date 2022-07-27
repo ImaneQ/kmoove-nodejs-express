@@ -3,9 +3,9 @@ a{
     color: inherit;
     &.link{
         text-decoration: underline dotted 2px var(--color-border);
-        color: var(--color-secondary);
+        color: $dark-blue-1;
         &:hover{
-            color: var(--color-border);
+            color: $light-blue-1;
         }
     }
 }

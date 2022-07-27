@@ -1,18 +1,33 @@
 #footer {
-  @include border(3px, black);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  // @include border(3px, black);
+  position: relative;
   padding: 10px;
-  #contactBtn {
-    // @include border(3px, red);
+  height: 190px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(235, 235, 235, 1) 100%
+  );
+  #openFormFooter {
     cursor: pointer;
     transition: all ease 1s;
-    h5 {
-    //   @include border(2px, red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    margin: auto;
+    font-size: clamp(1rem, 2vw, 36px);
+    height: 50px;
+    
+    h4 {
+      //   @include border(2px, red);
+      flex-shrink: 0;
+      text-align: center;
+      margin-right: 15px;
     }
     div.letter-image {
-    //   @include border(2px, red);
+      //   @include border(2px, red);
       width: 50px;
       height: 50px;
       margin: auto;
@@ -113,6 +128,7 @@
         opacity: 0.3;
       }
       &.active {
+        animation: bounce 0.4s alternate infinite;
         .animated-mail {
           transform: translateY(12.5px);
         }
@@ -129,35 +145,139 @@
     &:hover {
       div.letter-image {
         position: relative;
-        animation: bounce .4s alternate infinite;
-        &.active{
-            animation: none;
+        animation: bounce 0.4s alternate infinite;
+        &.active {
+          animation: bounce 0.4s alternate infinite;
         }
       }
     }
   }
   #followUs {
     // @include border(3px, red);
-    h5 {
-    //   @include border(2px, red);
+    position: absolute;
+    right: 10px;
+    bottom: 30px;
+    h4 {
+        // @include border(2px, red);
+        text-align: right;
+        font-size: .91rem;
     }
     div {
-    //   @include border(2px, red);
+      //   @include border(2px, red);
       width: 70%;
       margin: auto;
       display: flex;
       justify-content: space-around;
       align-items: center;
-      a {
-        // @include border(2px, red);
-        padding: 5px;
-        i{
-            transition: .3s ease;
-        }
-        &:hover i{
-            transform: scale(1.3);
+      // a {
+      //   // @include border(2px, red);
+      //   padding: 5px;
+      //   i{
+      //       transition: .3s ease;
+      //   }
+      //   &:hover i{
+      //       transform: scale(1.3);
+      //   }
+      // }
+      ul {
+        margin-top: 10px;
+        position: relative;
+        display: flex;
+        gap: 10px;
+        li {
+          @include justCenter();
+          background-color: #fff;
+          position: relative;
+          list-style-type: none;
+          width: 50px;
+          height: 55px;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          .fa-brands {
+            font-size: 2rem;
+            color: transparent;
+            transition: 1.2s ease;
+          }
+          &:nth-child(1) {
+            .fa-brands {
+              -webkit-text-stroke: 2px #dd2a7b;
+            }
+            &::before {
+              content: "\f16d";
+              border-bottom: 4px solid #dd2a7b;
+              color: #dd2a7b;
+            }
+          }
+          &:nth-child(2) {
+            .fa-brands {
+              -webkit-text-stroke: 2px #0022ff;
+            }
+            &::before {
+              content: "\f08c";
+              border-bottom: 4px solid #0022ff;
+              color: #0022ff;
+            }
+          }
+          &:nth-child(3) {
+            .fa-brands {
+              -webkit-text-stroke: 2px #e15;
+            }
+            &::before {
+              content: "\f167";
+              border-bottom: 4px solid #e15;
+              color: #e15;
+            }
+          }
+          &:nth-child(4) {
+            .fa-brands {
+              -webkit-text-stroke: 2px #92007e;
+            }
+            &::before {
+              content: "\e07b";
+              border-bottom: 4px solid #92007e;
+              color: #92007e;
+            }
+          }
+          &:hover {
+            .fa-brands {
+              opacity: 0;
+            }
+            &::before {
+              height: 100%;
+            }
+          }
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            transition: 0.5s ease-in-out;
+            text-align: center;
+            line-height: 55px;
+            font-size: 2rem;
+            overflow: hidden;
+          }
         }
       }
+    }
+  }
+  #mentions{
+    width: calc(100% - 16px);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    font-size: .8rem;
+    font-weight: bold;
+    #linksLegacy{
+      list-style-type: none;
+      position: absolute
+    }
+    #copyright{
+margin: auto;
     }
   }
 }

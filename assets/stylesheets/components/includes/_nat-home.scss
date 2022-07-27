@@ -1,0 +1,39 @@
+#nat-home {
+  // @include border(3px, red);
+  height: 100vh;
+  background: grey;
+  position: relative;
+  z-index: 9;
+  #start-pass {
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -60%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(8, 1, 136, 0.808);
+    background: #04e9f5;
+    box-shadow: 0 0 0 5px #fff, 0 5px 25px rgba(0, 0, 0, 0.8);
+    &::before {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    i {
+      font-size: 50px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      animation: scrollDown 1.5s linear infinite;
+      text-shadow: 0 2px 5px rgba(0, 0, 0.2);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+#mat-k{
+    @include border(3px, blue);
+    height: 130vh;
+    background: rgb(124,224,224);
+    background: linear-gradient(184deg, #00a2ff 0%, #7ce0e0 33%, #2aaba6 66%, rgba(59,134,190,1) 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%, 0 100%, 0% 50%);
+    margin-top: -1px;
+    // #newGen{
+    //     @include border(3px, red);
+    // }
+    // #k{
+    //     @include border(3px, red);
+    // }
+}

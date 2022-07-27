@@ -8,11 +8,207 @@
     transform: rotate(-360deg);
   }
 }
+@keyframes opacityLastSec {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes bounce {
   from {
     bottom: 0px;
   }
   to {
     bottom: 5px;
+  }
+}
+@keyframes rightZero {
+  from {
+    right: -200%;
+  }
+  to {
+    right: 0%;
+  }
+}
+
+@keyframes typing{
+  from{
+      width:0;
+  }
+}
+
+@keyframes blink {
+  50%{
+      border-color: #000;
+  }
+}
+@keyframes blinkBorder {
+  0%{
+    border-color: #c8c8c8;
+    // width: calc(100% + 2px);
+    // top: -2px;
+    // left: -2px;
+  }
+  50%{
+    border-color: #c8c8c83c;
+    // width: calc(100% + 2px);
+    // top: -2px;
+    // left: -2px;
+  }
+  100%{
+    border-color: #c8c8c800;
+    width: calc(100% + 25px);
+    height: calc(100% + 18px);
+    top: -10px;
+    left: -10px;
+  }
+}
+
+@keyframes scaleSemi{
+  from{
+    transform: scale(1);
+  }
+  to{
+    transform: scale(1.3);
+  }
+}
+
+@keyframes bandBrands{
+  from{
+    margin-left: 50px;
+  }
+  to{
+    margin-left: - calc(110px * 3);
+  }
+}
+@keyframes bandOpi{
+  from{
+    margin-top: 0px;
+  }
+  to{
+    margin-top: - calc(110px * 5);
+  }
+}
+
+// @keyframes translateRightExcl{
+//   from{
+//     transform: translate(0px);
+//   }
+//   to{
+//     transform: translate(10px);
+//   }
+// }
+
+@keyframes scaleTranslate {
+  0%{
+    transform: scale(5) translate(10px);
+  }
+  50%{
+    transform: scale(4) translate(5px);
+  }
+  100%{
+    transform: scale(1.3) translate(-9px);
+  }
+}
+
+@keyframes scaleFont {
+  0%{
+    font-size: 100%;
+  }
+  1%{
+    opacity: 1;
+    font-size: 800%;
+  }
+ 100%{
+  opacity: 1;
+  font-size: 150%;
+ }
+}
+
+@keyframes borderRadStylePurple {
+  0%{
+    border-radius: 61% 39% 41% 59% / 30% 43% 57% 70% ;
+  }
+ 25%{
+    border-radius: 51% 49% 50% 50% / 40% 27% 73% 60%  ;
+  }
+  55%{
+    border-radius: 32% 68% 14% 86% / 64% 43% 57% 36% ;
+  }
+  75%{
+    border-radius: 48% 52% 10% 90% / 71% 34% 66% 29%  ;
+  }
+  100%{
+    border-radius: 61% 39% 41% 59% / 30% 43% 57% 70% ;
+  }
+}
+@keyframes borderRadStyleBlue {
+  0%{
+    border-radius: 66% 34% 28% 72% / 19% 46% 54% 81%   ;
+  }
+ 25%{
+    border-radius: 19% 81% 53% 47% / 78% 34% 66% 22%   ;
+  }
+  55%{
+    border-radius: 26% 74% 43% 57% / 60% 36% 64% 40%  ;
+  }
+  75%{
+    border-radius: 56% 44% 29% 71% / 72% 36% 64% 28%   ;
+  }
+  100%{
+    border-radius: 66% 34% 28% 72% / 19% 46% 54% 81%   ;
+  }
+}
+@keyframes borderRadStyleLightBlue {
+  0%{
+    border-radius: 56% 44% 66% 34% / 47% 51% 49% 53%    ;
+  }
+ 25%{
+    border-radius: 68% 32% 47% 53% / 28% 59% 41% 72%    ;
+  }
+  55%{
+    border-radius: 30% 70% 39% 61% / 68% 32% 68% 32%   ;
+  }
+  75%{
+    border-radius: 38% 62% 23% 77% / 49% 44% 56% 51%    ;
+  }
+  100%{
+    border-radius: 56% 44% 66% 34% / 47% 51% 49% 53%    ;
+  }
+}
+
+@keyframes ripples{
+  0%{
+    width: 0px;
+    height: 0px;
+    opacity: .5;
+  }
+  100%{
+width: 300px;
+height: 300px;
+opacity: 0;
+  }
+}
+
+@keyframes scrollDown{
+  0%{
+    top: -10%;
+  }
+  40%{
+    top: 60%;
+  }
+  60%{
+    top: 30%;
+  }
+  80%{
+    top: 60%;
+  }
+  100%{
+    top: 110%;
   }
 }
