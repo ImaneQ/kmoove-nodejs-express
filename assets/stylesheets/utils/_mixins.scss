@@ -14,6 +14,11 @@
     }
 }
 
+@mixin mid-md {
+    @media all and (min-width: 450px){
+        @content;
+    }
+}
 @mixin md {
     @media all and (min-width: map-get($breakpoints, md)){
         @content;
@@ -22,6 +27,12 @@
 
 @mixin md-only {
     @media all and (min-width: map-get($breakpoints, md)) and (max-width: map-get($breakpoints, lg)){
+        @content;
+    }
+}
+
+@mixin mid-lg {
+    @media all and (min-width: map-get($breakpoints, lg)){
         @content;
     }
 }

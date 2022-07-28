@@ -1,3 +1,5 @@
+import './form.js'
+import './nav.js'
 // manage starting page
 var session = (sessionStorage.getItem('start')) == null ? false : sessionStorage.getItem('start')
 
@@ -5,17 +7,56 @@ let homeStarter = document.getElementById('nat-home')
 let btnStart = document.getElementById('start-pass')
 let navbarTop = document.getElementById('navbar-top')
 let bands = document.getElementById('mat-bands')
+let k = document.getElementById('mat-k')
+let titlePrereq = document.getElementById('mat-prerequisite')
 
 if (!session) {
+    homeStarter.style.display = "block"
+    homeStarter.style.visibility = "visible"
     sessionStorage.setItem('start', 'true');
     btnStart.onclick = () => {
         console.log('ok');
         diapo.scrollIntoView();
     }
+    // nathan
+    const pinkGrid = document.querySelector('.pinkGrid');
+    const pinkGridRight = document.querySelector('.pinkGrid--Right');
+    const pinkGridLeft = document.querySelector('.pinkGrid--Left');
+    const homeAnim = document.querySelector('.home-anim');
+    let rightLines = 10;
+    const horyzontalLines = 12;
+
+    for (let i = 0; i < rightLines; i++) {
+        const rightLine = document.createElement('div');
+        rightLine.classList.add(`lineRight`, `lineRight-${i + 1}`);
+        pinkGridRight.appendChild(rightLine);
+    }
+
+    for (let i = rightLines; i > 0; i--) {
+        const leftLine = document.createElement('div');
+        leftLine.classList.add(`lineLeft`, `lineLeft-${i}`);
+        pinkGridLeft.appendChild(leftLine);
+    }
+
+    for (let i = horyzontalLines; i > 0; i--) {
+        const hLine = document.createElement('div');
+        hLine.classList.add(`hLine`, `hLine-${i}`);
+        pinkGrid.appendChild(hLine);
+        if (i > 9) {
+            hLine.style.background = '#f0086a';
+        } else if (i > 6) {
+            hLine.style.background =
+                'linear-gradient(90deg, rgba(25,25,112,1) -10%, rgba(240,8,106,1) 50%, rgba(25,25,112,1) 110%)';
+        } else {
+            hLine.style.background = `linear-gradient(90deg, rgba(25,25,112,0.1) 0%, rgba(240,8,106,1) 50%, rgba(25,25,112,0.1) 100%)`
+        }
+    }
 } else {
-    let el = document.getElementById("nat-home")
-    document.body.removeChild(el)
+    homeStarter.style.display = "none"
+    homeStarter.style.visibility = "hidden"
+    document.body.removeChild(homeStarter)
 }
+
 
 // intersection observer
 
@@ -23,6 +64,8 @@ window.onload = () => {
     createObserver(homeStarter);
     createObserver(diapo);
     createObserver(bands);
+    createObserver(k);
+    createObserver(titlePrereq);
 }
 
 function createObserver(element) {
@@ -38,8 +81,8 @@ function createObserver(element) {
 
 function buildThresholdList() {
     var thresholds = [];
-    for (var i = 1.0; i <= 20.0; i++) {
-        var ratio = i / 20.0;
+    for (var i = 1.0; i <= 50.0; i++) {
+        var ratio = i / 50.0;
         thresholds.push(ratio);
     }
     thresholds.push(0);
@@ -54,9 +97,9 @@ function handleIntersect(entries, observer) {
 
         // `);
         // console.log(`intersectionRatio == ${entry.intersectionRatio}`);
+        // console.log(`isIntersecting == ${entry.isIntersecting}`);
         // console.log(`intersectionRect == ${entry.intersectionRect}`);
         // console.log(`boundingClientRect == ${entry.boundingClientRect}`);
-        // console.log(`isIntersecting == ${entry.isIntersecting}`);
         // console.log(`rootBounds == ${entry.rootBounds}`);
         if (entry.target.id == "diapo") {
             if (entry.intersectionRatio > .5) {
@@ -79,7 +122,7 @@ function handleIntersect(entries, observer) {
         if (entry.target.id == "mat-bands") {
             if (entry.intersectionRatio > .3) {
                 document.getElementById('mat-bands').classList.add('active')
-            }else{
+            } else {
                 document.getElementById('mat-bands').classList.remove('active')
             }
         }
@@ -87,10 +130,36 @@ function handleIntersect(entries, observer) {
             if (!entry.isIntersecting) {
                 // console.log(entry.target.id + "2")
                 let el = document.getElementById(entry.target.id)
-                if(el){
+                if (el) {
                     document.body.removeChild(el)
                     navbarTop.scrollIntoView()
                 }
+            }
+        }
+        if (entry.target.id == "mat-k") {
+            if (entry.isIntersecting) {
+                let midPage = window.scrollY + window.innerHeight / 2
+                let midEl = window.scrollY + entry.boundingClientRect.top + entry.boundingClientRect.height / 2
+                if (midEl < midPage) {
+                    let ratio = midPage / midEl
+                    ratio = ratio % 1
+                    ratio = Math.round(ratio * 100)
+                    let letterK = document.getElementById('letterK')
+                    letterK.style.transform = `rotate(${ratio * 2}deg) translate(${ratio / 2}%, ${ratio / 4}%)`
+                } else {
+                    let letterK = document.getElementById('letterK')
+                    letterK.style.transform = `rotate(0deg) translate(0%, 0%)`
+                }
+            }
+        }
+        if (entry.target.id == "mat-prerequisite") {
+            if(entry.intersectionRatio > 0.65){
+                let title = document.getElementById('prerequisitesTitle')
+                let prereq = document.getElementById('prerequisites')
+                title.classList.add('active')
+                setTimeout(() => {
+                    prereq.classList.add('active')
+                }, 500)
             }
         }
     });

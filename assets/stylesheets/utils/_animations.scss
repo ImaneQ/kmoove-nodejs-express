@@ -212,3 +212,29 @@ opacity: 0;
     top: 110%;
   }
 }
+
+@keyframes leftZeroF{
+  to{
+    left: 7%;
+  }
+}
+@keyframes leftZeroT{
+  to{
+    left: 12%;
+  }
+}
+@keyframes leftZeroTT{
+  to{
+    left: 31%;
+  }
+}
+@keyframes scaleAppear{
+  to{
+    transform: scale(1) translateX(-50%);
+  }
+}
+@keyframes opacity{
+  to{
+    opacity: 1;
+  }
+}

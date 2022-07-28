@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Lato&family=Playfair+Display:wght@500&family=Press+Start+2P&display=swap');
-// h2 // h3 // p // navbar
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&family=Lato&family=Playfair+Display:wght@500&family=Poppins:wght@500&family=Press+Start+2P&display=swap');
+// h2 // h3 // p // navbar // figcaption
 
 // accessibility
 @font-face {
@@ -12,7 +12,7 @@ body {
   font-size: nth($font-size, 1);
 }
 
-h2{
+h2, #letterK{
   font-family: 'Press Start 2P', cursive;
 }
 h3{
@@ -35,4 +35,9 @@ p{
     font-family: 'Bowlby One', cursive;
     text-transform: uppercase;
   }
+}
+
+#prerequisites .prerequisite figcaption{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
 }

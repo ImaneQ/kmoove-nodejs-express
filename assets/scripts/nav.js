@@ -3,6 +3,7 @@ let burger = document.getElementById('toggleBurger')
 let navbarLinks = document.getElementById('navbarLinks')
 let langages = document.getElementById('langages')
 let scrollToTop = document.getElementById('scrollToTop')
+let navbarTop = document.getElementById('navbar-top')
 
 burger.onclick = () => {
     burger.classList.toggle('active')

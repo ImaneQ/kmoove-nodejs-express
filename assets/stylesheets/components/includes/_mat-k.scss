@@ -1,14 +1,84 @@
-#mat-k{
-    @include border(3px, blue);
-    height: 130vh;
-    background: rgb(124,224,224);
-    background: linear-gradient(184deg, #00a2ff 0%, #7ce0e0 33%, #2aaba6 66%, rgba(59,134,190,1) 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%, 0 100%, 0% 50%);
-    margin-top: -1px;
-    // #newGen{
-    //     @include border(3px, red);
-    // }
-    // #k{
-    //     @include border(3px, red);
-    // }
+#mat-k {
+  // @include border(3px, blue);
+  overflow: hidden;
+  height: 100vh;
+  background-color: rgb(1, 1, 1);
+  //   background: rgb(124, 224, 224);
+  //   background: linear-gradient(
+  //     184deg,
+  //     #00a2ff 0%,
+  //     #7ce0e0 33%,
+  //     #2aaba6 66%,
+  //     rgba(59, 134, 190, 1) 100%
+  //   );
+  //   clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%, 0 100%, 0% 50%);
+  border-radius: 50% 50% 100% 0% / 16% 18% 82% 84%;
+  margin-top: -1px;
+  position: relative;
+  padding-top: 50px;
+  bottom: 145px;
+  @include mid-md() {
+    padding-top: 70px;
+  }
+  @include md() {
+    padding-top: 90px;
+  }
+  #newGen {
+    color: #fff;
+    z-index: 3;
+    // @include border(3px, red);
+    width: clamp(250px, 40%, 400px);
+    height: auto;
+    overflow: hidden;
+    position: absolute;
+    right: 13%;
+    top: 7%;
+    h3 {
+      width: 100%;
+      font-size: clamp(22px, 3.5vw, 44px);
+    }
+  }
+  #k {
+    // @include border(3px, red);
+    width: clamp(350px, 80%, 800px);
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    video {
+      // @include border(3px, red);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #letterK {
+      // @include border(3px, blue);
+
+      width: 500%;
+      height: 500%;
+      position: absolute;
+      top: -200%;
+      left: -200%;
+      @include justCenter();
+      text-align: center;
+      font-size: 200px;
+      font-weight: 900;
+      background-color: rgb(1, 1, 1);
+      color: #fff;
+      mix-blend-mode: multiply;
+      #spanK {
+        position: relative;
+        bottom: 0px;
+        text-shadow: 5px 5px 10px blue;
+        transform: scale(1.7) translateX(10px);
+        -webkit-text-stroke: 2px blue;
+        transition: all ease 0.3s;
+        @include mid-md() {
+          transform: scale(2) translateX(20px);
+        }
+        @include md() {
+          transform: scale(2.5) translate(10px, 20px);
+        }
+      }
+    }
+  }
 }

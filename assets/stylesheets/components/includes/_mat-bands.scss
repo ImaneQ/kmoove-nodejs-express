@@ -1,11 +1,13 @@
 #mat-bands {
   // @include border(3px, red);
   padding: 10px;
-  background-image: linear-gradient(
-    0deg,
-    #00a2ff 0%,
-    #80d0c7 50%,
-    #ffffff 100%
+  padding-bottom: 200px;
+  background: rgb(124, 224, 224);
+  background: linear-gradient(
+    180deg,
+    #7ce0e0 0%,
+    #2aaba6 66%,
+    rgba(59, 134, 190, 1) 100%
   );
   overflow: hidden;
   #trust {
