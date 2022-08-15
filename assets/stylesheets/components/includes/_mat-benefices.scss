@@ -1,4 +1,64 @@
-#mat-benefices {
-  // @include border(3px, purple);
-  height: 100vh;
-}
+// #mat-benefices {
+//   @include border(3px, purple);
+//   height: 100vh;
+//   overflow: auto;
+//   position: relative;
+//   #bands-color {
+//     @include border(3px, rgb(195, 0, 255));
+//     .band-color {
+//       height: 20vh;
+//       position: relative;
+//       width: 0%;
+//       transition: 1s ease;
+//       &:nth-child(1) {
+//         background: #93d2fe;
+//       }
+//       &:nth-child(2) {
+//         background: #8597e3;
+//       }
+//       &:nth-child(3) {
+//         background: #ad8aff;
+//       }
+//       &:nth-child(4) {
+//         background: #cb72ea;
+//       }
+//       &:nth-child(5) {
+//         background: #ff6ad6;
+//       }
+//       &.active {
+//         width: 100%;
+//       }
+//     }
+//   }
+//   #blocTitle {
+//     @include border(3px, red);
+//     width: clamp(200px, 50%, 600px);
+//     font-size: clamp(20px, 3vw, 40px);
+//     position: sticky;
+//     top: 10vh;
+//     height: 20vh;
+//     margin-top: 50vh;
+//   }
+//   .titleSlideRight {
+//     position: sticky;
+//     margin-top: 50vh;
+//     height: 25vh;
+//     text-align: right;
+
+//     @include border(3px, blue);
+//   }
+//   #cohesion {
+//     top: 30vh;
+//   }
+//   #integration {
+//     top: 55vh;
+//   }
+//   &.active {
+//     overflow: auto;
+//     &::-webkit-scrollbar {
+//       display: none;
+//     }
+//     -ms-overflow-style: none;
+//     scrollbar-width: none; /* Firefox */
+//   }
+// }

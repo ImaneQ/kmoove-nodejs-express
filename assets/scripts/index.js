@@ -9,6 +9,8 @@ let navbarTop = document.getElementById('navbar-top')
 let bands = document.getElementById('mat-bands')
 let k = document.getElementById('mat-k')
 let titlePrereq = document.getElementById('mat-prerequisite')
+let benefices = document.getElementById('mat-benefices')
+// let bandsColors = document.querySelectorAll('.band-color')
 
 if (!session) {
     homeStarter.style.display = "block"
@@ -59,6 +61,16 @@ if (!session) {
 
 
 // intersection observer
+// console.log(`
+
+// ${entry.target.id}
+
+// `);
+// console.log(`intersectionRatio == ${entry.intersectionRatio}`);
+// console.log(`isIntersecting == ${entry.isIntersecting}`);
+// console.log(`intersectionRect == ${entry.intersectionRect.y}`);
+// console.log(`boundingClientRect == ${entry.boundingClientRect.y}`);
+// console.log(`rootBounds == ${entry.rootBounds}`);
 
 window.onload = () => {
     createObserver(homeStarter);
@@ -66,6 +78,10 @@ window.onload = () => {
     createObserver(bands);
     createObserver(k);
     createObserver(titlePrereq);
+    // createObserver(benefices);
+    // for (let band of bandsColors) {
+    //     createObserver(band);
+    // }
 }
 
 function createObserver(element) {
@@ -91,16 +107,6 @@ function buildThresholdList() {
 
 function handleIntersect(entries, observer) {
     entries.forEach(function (entry) {
-        // console.log(`
-
-        // ${entry.target.id}
-
-        // `);
-        // console.log(`intersectionRatio == ${entry.intersectionRatio}`);
-        // console.log(`isIntersecting == ${entry.isIntersecting}`);
-        // console.log(`intersectionRect == ${entry.intersectionRect}`);
-        // console.log(`boundingClientRect == ${entry.boundingClientRect}`);
-        // console.log(`rootBounds == ${entry.rootBounds}`);
         if (entry.target.id == "diapo") {
             if (entry.intersectionRatio > .5) {
                 document.getElementById('diapo').classList.add('active')
@@ -153,7 +159,7 @@ function handleIntersect(entries, observer) {
             }
         }
         if (entry.target.id == "mat-prerequisite") {
-            if(entry.intersectionRatio > 0.65){
+            if (entry.intersectionRatio > 0.55) {
                 let title = document.getElementById('prerequisitesTitle')
                 let prereq = document.getElementById('prerequisites')
                 title.classList.add('active')
@@ -162,8 +168,39 @@ function handleIntersect(entries, observer) {
                 }, 500)
             }
         }
+        // if (entry.target.classList.contains("band-color")) {
+        //     if (entry.isIntersecting) {
+        //         let el = document.getElementById(entry.target.id)
+        //         el.classList.add('active')
+        //         if(el.id == 5) {
+        //             benefices.classList.add('active')
+        //         }
+        //     }
+        //     else{
+        //         let el = document.getElementById(entry.target.id)
+        //         el.classList.remove('active')
+        //     }
+        // }
+        // if (entry.target.id == "mat-benefices") {
+        //     // if (entry.isIntersecting) {
+        //         // console.log(entry.boundingClientRect.top);
+        //         // if (entry.boundingClientRect.top <= 100) {
+        //             // document.body.style.overflow = "hidden"
+        //             // benefices.scrollIntoView()
+        //             // setTimeout(() => {
+        //             //     disableScroll()
+        //             // }, 1000)
+        //         // }
+        //         // else{
+        //             // document.body.style.overflow = "hidden"
+        //             // enableScroll()
+        //         // }
+        //     // }
+        // }
     });
 }
+
+// diapo
 
 var interval
 function startDiapo() {
@@ -185,8 +222,6 @@ function startDiapo() {
     }, 12000);
 }
 
-// diapo
-
 let diapo = document.getElementById('diapo')
 var radios = document.getElementsByName('diapo');
 let radioName = ["first", "second", "third"]
@@ -207,4 +242,18 @@ for (const radio of radios) {
 
         diapo.classList.add('active')
     }
+}
+
+// disanble scroll
+
+function disableScroll() {
+    let scrollTop = window.pageYOffset;
+    let scrollLeft = window.pageXOffset;
+    window.onscroll = function () {
+        window.scrollTo(scrollLeft, scrollTop);
+    };
+}
+
+function enableScroll() {
+    window.onscroll = function () { };
 }

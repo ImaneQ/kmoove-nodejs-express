@@ -33,27 +33,27 @@ app.use(require('./middlewares/language'), async (req, res, next) => {
         let firstElementUrl = req.originalUrl.split("/")[1]
         let secondElementUrl = req.originalUrl.split("/")[2]
         var page = ""
-        console.log(`${firstElementUrl}, ${secondElementUrl}, `);
+        console.log(`elements url : 1 = ${firstElementUrl}, 2 = ${secondElementUrl}, `);
         if (firstElementUrl == "" || urlAccepted.includes(firstElementUrl)) {
-            console.log(`no lang in l'url (${req.lang})`);
+            console.log(`no lang defined in l'url (${req.lang})`);
             if (!urlAccepted.includes(firstElementUrl) && secondElementUrl == undefined) {
                 page = "index"
-                console.log(`page is index 1`);
+                console.log(`page is index [1]`);
             } else {
                 page = firstElementUrl
-                console.log(`page is ${page} 2`);
+                console.log(`page is ${page} [2]`);
             }
         }
         else if (langAccepted.includes(firstElementUrl)) {
-            console.log(`lang in l'url (${firstElementUrl})`);
+            console.log(`lang defined in l'url (${firstElementUrl})`);
             if (secondElementUrl == undefined) {
                 page = "index"
-                console.log(`page is index 3`);
+                console.log(`page is index [3]`);
             } else if (urlAccepted.includes(secondElementUrl)) {
                 page = secondElementUrl
-                console.log(`page is ${page} 2`);
+                console.log(`page is ${page} [4]`);
             } else if (secondElementUrl == "") {
-                console.log(`page is 4`);
+                console.log(`page is [5]`);
                 next()
             }
         }
@@ -63,7 +63,7 @@ app.use(require('./middlewares/language'), async (req, res, next) => {
 
         if (cache == undefined && page !== "") {
             console.log(`page isn't cached (${cacheName})`);
-            let data = require(`./data/lang/${req.lang}/${page}.json`)
+            let data = require(`./data/pages/${req.lang}/${page}.json`)
             success = myCache.set(cacheName, data);
             if (success) {
                 data = myCache.get(cacheName)
@@ -90,6 +90,9 @@ app.get('/:lang([a-z]{2})?/:page?*', (req, res) => {
 app.get('/maintenance', (req, res) => {
     res.render("maintenance")
 })
+
+// POST register
+// POST contact
 
 // ERROR
 app.use(require('./middlewares/error'));

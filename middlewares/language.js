@@ -3,10 +3,11 @@ module.exports = function (req, res, next) {
 
     let firstElementUrl = req.originalUrl.split("/")[1]
     let langAccepted = ["fr", "en"]
-    let urlAccepted = ["index", "about", "for-who", "our-games", "login"]
+    let urlAccepted = ["index"]
     
     if (firstElementUrl == "") {
-        let language = process.env.LANG || process.env.LANGUAGE || process.env.LC_ALL || process.env.LC_MESSAGES;
+        let language = process.env.LANG || process.env.LANGUAGE || process.env.LC_ALL || process.env.LC_MESSAGES || "";
+        console.log(language);
         let lang = language.substring(0, 2)
         if (langAccepted.includes(lang)) {
             req.lang = lang

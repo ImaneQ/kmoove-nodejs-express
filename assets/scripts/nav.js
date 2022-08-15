@@ -2,6 +2,7 @@
 let burger = document.getElementById('toggleBurger')
 let navbarLinks = document.getElementById('navbarLinks')
 let langages = document.getElementById('langages')
+let langagesMob = document.getElementById('langagesMob')
 let scrollToTop = document.getElementById('scrollToTop')
 let navbarTop = document.getElementById('navbar-top')
 
@@ -12,6 +13,10 @@ burger.onclick = () => {
 
 langages.onclick = () => {
     langages.classList.toggle('active')
+}
+
+langagesMob.onclick = () => {
+    langagesMob.classList.toggle('active')
 }
 
 scrollToTop.onclick = () => {

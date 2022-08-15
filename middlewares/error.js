@@ -1,4 +1,5 @@
 module.exports = function (err, req, res, next) {
+    console.log("\n======== (error.js) ========\n");
     
     console.error(err);
     // console.error(err.stack);

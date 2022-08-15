@@ -17,19 +17,63 @@
     <li><a href="/our-games" class="selected navbarLink">nos jeux</a></li>
     <%} else { %>
     <li><a href="/our-games" class="navbarLink">nos jeux</a></li>
-    <% } %> <% if (data.page.name =="for-who") { %>
-    <li><a href="/for-who" class="selected navbarLink">pour qui ?</a></li>
+    <% } %> <% if (data.page.name =="galerie") { %>
+    <li><a href="/galerie" class="selected navbarLink">galerie</a></li>
     <%} else { %>
-    <li><a href="/for-who" class="navbarLink">pour qui ?</a></li>
+    <li><a href="/galerie" class="navbarLink">galerie</a></li>
     <% } %> <% if (data.page.name =="blog") { %>
-    <li><a href="/blog" class="selected navbarLink">actualités</a></li>
+    <li><a href="/blog" class="selected navbarLink">blog</a></li>
     <%} else { %>
-    <li><a href="/blog" class="navbarLink">actualités</a></li>
+    <li><a href="/blog" class="navbarLink">blog</a></li>
     <% } %> <% if (data.page.name =="about") { %>
     <li><a href="/about" class="selected navbarLink">à propos</a></li>
     <%} else { %>
     <li><a href="/about" class="navbarLink">à propos</a></li>
     <% } %>
+    <li id="accountMob"><a href="/account" class="navbarLink">mon compte</a></li>
+    <li id="settingsMobile">
+      <div id="langagesMob">
+        <% if (data.page.name == "index") { %>
+        <a href="/<%= data.head.lang %>">
+        <% } else { %> 
+        <a href="/<%= data.head.lang %>/<%= data.page.name %>">
+        <% } %>
+          <div class="lang">
+            <figure>
+              <img src="/files/images/flag-<%= data.head.lang %>.jpg" alt="" />
+            </figure>
+            <div class="selectedLang">
+              <i class="fa-solid fa-angle-down"></i>
+            </div>
+          </div>
+        </a>
+        <% if (data.head.lang == "fr") { %>
+          <% if (data.page.name == "index") { %>
+          <a href="/en">
+          <%} else { %> 
+          <a href="/en/<%= data.page.name %>">
+          <% } %>
+            <div class="lang">
+              <figure>
+                <img src="/files/images/flag-en.jpg" alt="" />
+              </figure>
+            </div>
+          </a>
+        <% } else { %>
+          <% if (data.page.name == "index") { %>
+            <a href="/fr">
+          <% } else { %> 
+            <a href="/fr/<%= data.page.name %>">
+          <% }  %>
+            <div class="lang">
+              <figure>
+                <img src="/files/images/flag-fr.jpg" alt="" />
+              </figure>
+            </div>
+          </a>
+        <% } %>
+      </div>
+    </li>
   </ul>
   <div id="settings">
     <div id="langages">
@@ -74,7 +118,7 @@
       <% } %>
     </div>
     <div id="account">
-      <a href="/account">
+      <a href="/login">
         <i class="fa-solid fa-circle-user"></i>
       </a>
     </div>
