@@ -4,35 +4,36 @@
       <div id="firstFilter">
       </div>
       <h2>
-        <span class="titleLine">Transformez vos murs</span><br /> 
-        <span class="titleLine">et espaces en une</span><br />
-        <span class="titleLine">console de jeux <span id="scalExcl">!</span></span>
+        <span class="titleLine"><%= data.body.titleLine1 %></span><br /> 
+        <span class="titleLine"><%= data.body.titleLine2 %></span><br />
+        <span class="titleLine"><%= data.body.titleLine3 %> <span id="scalExcl">!</span></span>
       </h2>
     </div>
     <div id="second" class="layout">
       <div class="secondFilter">
         <h2>
-          Location concept<br>
-          clé en main
+          <%= data.body.bubble1turnkey1 %><br>
+          <%= data.body.bubble1turnkey2 %>
         </h2>
       </div>
       <div class="secondFilter">
-        <h2>Jeux personnalisés à partir d'une page blanche</h2>
+        <h2><%= data.body.bubble2 %></h2>
       </div>
       <div class="secondFilter">
-        <h2>+ 15 jeux<br>vidéos sport</h2>
+        <h2>
+          <%= data.body.bubble3game1 %><br>
+          <%= data.body.bubble3game2 %></h2>
       </div>
     </div>
     <div id="third" class="layout">
       <div class="thirdFilter">
-        <h2>lorem ipsum</h2>
+        <h2><%= data.body.diapoContact1 %></h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-          repudiandae minima nemo libero qui exercitationem quis corpori
+          <%= data.body.diapoContact2 %>
         </p>
       </div>
       <div class="thirdFilter formBtn" id="openFormDiapo">
-        <h2>contactez-nous<i class="fa-regular fa-hand-pointer"></i></h2>
+        <h2><%= data.body.diapoContactBtn %><i class="fa-regular fa-hand-pointer"></i></h2>
       </div>
     </div>
     <div id="diapoController">

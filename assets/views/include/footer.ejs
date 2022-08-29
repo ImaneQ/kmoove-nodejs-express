@@ -1,6 +1,10 @@
 <footer id="footer">
   <div id="openFormFooter" class="formBtn">
-    <h4>Contactez-nous</h4>
+    <% if (data.head.lang =="fr") { %>      
+      <h4>Contactez-nous</h4>
+    <% } else if (data.head.lang =="en") { %> 
+      <h4>Contact us</h4>
+    <% } %> 
     <div class="letter-image">
       <div class="animated-mail">
         <div class="back-fold"></div>
@@ -20,7 +24,11 @@
     </div>
   </div>
   <div id="followUs">
-    <h4>Suivez-nous sur les plateformes</h4>
+    <% if (data.head.lang =="fr") { %>     
+      <h4>Suivez-nous sur les plateformes</h4>
+    <% } else if (data.head.lang =="en") { %> 
+      <h4>Follow us on the platforms</h4>
+    <% } %> 
     <div>
       <!-- <a href="#"><i class="fa-brands fa-linkedin"></i></a>
       <a href="#"><i class="fa-brands fa-youtube"></i></a>
@@ -34,11 +42,19 @@
     </div>
   </div>
   <div id="mentions">
+    <% if (data.head.lang =="fr") { %>     
     <ul id="linksLegacy">
       <li><a href="#">Plan du site</a></li>
       <li><a href="#">Mentions légales</a></li>
       <li><a href="#">Cookies</a></li>
     </ul>
+    <% } else if (data.head.lang =="en") { %> 
+    <ul id="linksLegacy">
+      <li><a href="#">Sitemap</a></li>
+      <li><a href="#">Legal Notice</a></li>
+      <li><a href="#">Cookies</a></li>
+    </ul>
+    <% } %> 
     <p id="copyright">
       KMOOVE 2022
     </p>

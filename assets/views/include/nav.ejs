@@ -9,28 +9,40 @@
     <div></div>
   </div>
   <ul id="navbarLinks">
+    <!-- link FR -->
+    <% if (data.head.lang =="fr") { %>
+
+    <!-- INDEX -->
     <% if (data.page.name =="index") { %>
     <li><a href="/" class="selected navbarLink">acceuil</a></li>
-    <%} else { %>
+    <%} 
+    else { %>
     <li><a href="/" class="navbarLink">acceuil</a></li>
-    <% } %> <% if (data.page.name =="our-games") { %>
-    <li><a href="/our-games" class="selected navbarLink">nos jeux</a></li>
-    <%} else { %>
+    <% } %> 
+
+    
+
+    <!-- link EN -->
+    <% } else if(data.head.lang =="en") { %> 
+
+    <!-- INDEX -->
+    <% if (data.page.name =="index") { %>
+    <li><a href="/" class="selected navbarLink">home</a></li>
+    <%} 
+    else { %>
+    <li><a href="/" class="navbarLink">home</a></li>
+    <% } %> 
+
+    <% } %>     
+    
     <li><a href="/our-games" class="navbarLink">nos jeux</a></li>
-    <% } %> <% if (data.page.name =="galerie") { %>
-    <li><a href="/galerie" class="selected navbarLink">galerie</a></li>
-    <%} else { %>
     <li><a href="/galerie" class="navbarLink">galerie</a></li>
-    <% } %> <% if (data.page.name =="blog") { %>
-    <li><a href="/blog" class="selected navbarLink">blog</a></li>
-    <%} else { %>
     <li><a href="/blog" class="navbarLink">blog</a></li>
-    <% } %> <% if (data.page.name =="about") { %>
-    <li><a href="/about" class="selected navbarLink">à propos</a></li>
-    <%} else { %>
     <li><a href="/about" class="navbarLink">à propos</a></li>
-    <% } %>
+
+    
     <li id="accountMob"><a href="/account" class="navbarLink">mon compte</a></li>
+    
     <li id="settingsMobile">
       <div id="langagesMob">
         <% if (data.page.name == "index") { %>
@@ -74,7 +86,9 @@
         <% } %>
       </div>
     </li>
+
   </ul>
+
   <div id="settings">
     <div id="langages">
       <% if (data.page.name == "index") { %>
@@ -123,6 +137,7 @@
       </a>
     </div>
   </div>
+
 </nav>
 
 <div id="scrollToTop">
